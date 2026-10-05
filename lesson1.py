@@ -1,5 +1,5 @@
 # Preprocessing/cleaning data using Pandas(a python library)
-# Pandas can:process data in form of data frames,join and cut data,create spreadsheets and handle time-series data,simple graphs
+# Pandas can:process data in form of DataFrames,join and cut data,create spreadsheets and handle time-series data,simple graphs
 import pandas as pd
 import numpy as np
 import numpy.random as random
@@ -7,7 +7,7 @@ from pandas import Series, DataFrame
 
 
 # Pandas data structure
-# 1. Series:is a 1D object
+# 1.Series:is a 1D object
 # 2.DataFrame:is a 2D data sequence
 
 # Series Object:It is like a numpy 1D array with labels
@@ -53,4 +53,15 @@ print(df_i)
 print('Element:',df_i.values)
 print('Index:',df_i.index)
 print('Column:',df_i.columns)
+
+# When trying to display a huge DataFrame, it may be partially omitted. We can specify the maximum number of columns or rows to display below.
+# pd-->pandas
+# set_option-->tells pandas how to display the data.Specify what needs to be displayed using a string.
+# specify max number of columns
+pd.set_option('display.max_columns',50)
+
+# specify max number of rows 
+pd.set_option('display.max_rows',10)
+
+
 
