@@ -54,6 +54,55 @@ print(anime_data.describe())
 
 
 # --------------DATAFRAME  BASICS-------------------------
+# Transposition:(swap rows and columns)to transpose rows and columns as in the transposition of a matrix,refer to the (.T) attribute
+print(anime_data.head().T)
+
+# Data selection and Assignment
+# How to select columns and rows
+# 1.Extract only a specific column using [] or print(anime_data.Score)
+print(anime_data['Score'])
+print(anime_data.Score)
+
+# Specify multiple columns as well,specify them in list form anime_data[['Name','Score']]
+print(anime_data[['Score','Name']])
+
+cols_to_use = ['MAL_ID','Name','Score','Genres','Type','Aired','Studios','Source','Members']
+anime_data_extracted = anime_data[cols_to_use]
+anime_data_extracted.head()
+
+# Extracting only specific rows we use (:)
+print(anime_data[0:3])
+
+# same as to letters
+# df['a':'c']
 
 
+# Using df.loc[]
+# Allows to retrieve a row or column by specifying the label(index or column name)
+print(anime_data_extracted.loc[4])
 
+# Specify row names(if multiple)
+print(anime_data_extracted.loc[3:8])
+
+# TO extract column ,you specify the column names after the comma.
+anime_data_extracted.loc[:,['Name']]
+# If multiple
+anime_data_extracted.loc[:,['MAL_ID','Name']]
+# combined row and column
+anime_data_extracted[0:3,['MAL_ID','Name']]
+
+# Using df.iloc[]
+# retrieve a specific row or column but by specifying location(index number or column number)
+# Specify first 4 rows and 1st and 3 column
+print(anime_data_extracted.iloc[0:4,[0,2]])
+
+
+# USing df.at and df.iat
+# retrieve a specific element just like df.loc and df.iloc
+print(anime_data.at[0,'Name'])
+
+# Assigning and replacing values
+# creating a new column can be done by using[] and name of new column.
+# If you use a column name that already exist the data is overwritten
+# df['Score'] = np.arrange(5)* 10
+# to replace elements we can use the methods introduced
